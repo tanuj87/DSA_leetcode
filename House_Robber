@@ -1,0 +1,16 @@
+//198. House Robber
+
+class Solution {
+    
+    private int helper(int[] nums, int idx){
+        if(idx >= nums.length) return 0; 
+        int rob1IdxCost = nums[idx] + helper(nums, idx+2);
+        int dontRob1 = helper(nums, idx+1);
+        return Math.max(rob1IdxCost, dontRob1);       
+
+    }
+
+    public int rob(int[] nums) {
+        return helper(nums, 0);
+    }
+}
