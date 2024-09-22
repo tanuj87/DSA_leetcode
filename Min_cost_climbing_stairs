@@ -1,0 +1,14 @@
+//746. Min Cost Climbing Stairs
+
+class Solution {
+
+    private int helper(int[] cost, int idx){
+        if(idx >= cost.length) return 0;
+        return cost[idx] + Math.min(helper(cost, idx+1), helper(cost, idx+2));
+
+    }
+
+    public int minCostClimbingStairs(int[] cost) {
+        return Math.min(helper(cost, 0), helper(cost, 1));
+    }
+}
